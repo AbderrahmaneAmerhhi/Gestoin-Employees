@@ -1,0 +1,560 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+    --header-height: 3rem;
+
+    /*===== Colores =====*/
+    --first-color: #53b5d2;
+    --dark-color: #070D1F;
+    --dark-color-alt: #282B3A;
+    --white-color: #E6E7E9;
+    --white: #fff;
+    /*===== Fuente y tipografia =====*/
+    --body-font: 'Poppins', sans-serif;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+
+    /*===== z index =====*/
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+    }
+}
+
+/*===== BASE =====*/
+*{
+    margin: 0;
+    padding: 0;
+
+}
+*,
+::before,
+::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header{
+ width: 100%;
+ height: 3.5rem !important;
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: var(--z-fixed);
+ padding: 0 1.5rem;
+ margin-bottom: 20px !important;
+ background-color: var(--dark-color);
+ display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+}
+
+.header .header-name,.header .header__toggle,.nav__close{
+    display: none;
+}
+
+.container{
+    margin-top: 50px !important;
+}
+/************* Card Style ********************/
+.CardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+  }
+
+  .CardBox .Card {
+    position: relative;
+    background: var(--white);
+    padding: 38px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    /* best boxshadow for cards hada asan box shadow tkhdm bih*/
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
+  .CardBox .Card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--first-color);
+  }
+
+  .CardBox .Card .CardName {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+  }
+  .CardBox .Card .iconBox {
+    font-size: 3.5em;
+    color:  rgba(35, 35, 35, 0.563);
+  }
+
+  .CardBox .Card:hover {
+    background: var(--first-color);
+  }
+
+  .CardBox .Card:hover .numbers,
+  .CardBox .Card:hover .CardName,
+  .CardBox .Card:hover .iconBox {
+    color: var(--white-color) !important;
+  }
+
+  /****************** details Style ******************************/
+
+  .details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-gap: 30px;
+    margin-top: 10px;
+  }
+  .details .recentOrders {
+    position: relative;
+    display: grid;
+    /* min-height: 500px; */
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+  }
+
+  .cartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cartHeader h2 {
+    font-weight: 600;
+    color: var(--first-color);
+  }
+  .btn {
+    position: relative;
+    padding: 5px 18px;
+    background: var(--first-color);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+  }
+  .details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  .details table thead td {
+    font-weight: 600;
+  }
+  .details .recentOrders table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .details .recentOrders table tr:last-child {
+    border-bottom: none;
+  }
+  .details .recentOrders table tbody tr:hover {
+    background: var(--first-color);
+    color: var(--white);
+  }
+  .details .recentOrders table tr td {
+    padding: 10px;
+  }
+  .details .recentOrders table tr td:last-child {
+    text-align: end;
+  }
+  .details .recentOrders table tr td:nth-child(2) {
+    text-align: end;
+  }
+  .details .recentOrders table tr td:nth-child(3) {
+    text-align: center;
+  }
+/*
+  /*** status tag style ***
+  .status.delivered {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .status.pending {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .status.return {
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .status.inProgress {
+    padding: 2px 4px;
+    background: #1795ce;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /****************** recentCustomers style *********
+  .recentCustomers {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+  }
+  .recentCustomers .imgBx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .recentCustomers .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .recentCustomers table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+  }
+  .recentCustomers table tr td {
+    padding: 12px 10px;
+  }
+  .recentCustomers table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2rem;
+  }
+  .recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
+  }
+
+  .recentCustomers table tr:hover td h4 span {
+    color: var(--white);
+  } */
+  /* form style
+  .form-content{
+    background-color: var(--white-color);
+    border-radius: 20px;
+    width: 500px !important;
+    max-height: 600px;
+    position:fixed;
+    top: 70px;
+    left: -700px;
+    overflow-y: scroll;
+    transition: .5s ease-in;
+}
+.form-content.deptform{
+    overflow-y: none !important;
+}
+.form-content.deptform::-webkit-scrollbar{
+    width: 0 !important;
+    background-color: transparent !important;
+}
+.form-content.deptform::-webkit-scrollbar-thumb {
+    background-color: transparent !important;
+}
+.form-content.deptform::-webkit-scrollbar-thumb:hover{
+    background-color: transparent !important;
+}
+.form-content::-webkit-scrollbar {
+    width: .6rem;
+    border-radius: .5rem;
+    background-color:#bbcbfb;
+}
+
+.form-content::-webkit-scrollbar-thumb {
+    background-color: #a3baff;
+    border-radius: .5rem;
+}
+
+.form-content::-webkit-scrollbar-thumb:hover {
+    background-color: #676767;
+}
+.form-content.show{
+    left: 10px;
+}
+.form-content-ed{
+    background-color: var(--white-color);
+    border-radius: 20px;
+    width: 400px !important;
+    position:fixed;
+    top: 200px;
+
+    left: -700px;
+    transition: .5s ease-in;
+}
+.form-content-ed.show{
+    left: 10px;
+} */
+  /************** Responsive style *******************/
+
+  @media (max-width: 991px) {
+
+    .main {
+      width: 100%;
+      left: 0;
+    }
+    .main.active {
+      left: 70px;
+    }
+    .CardBox {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .details {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .recentOrders {
+      overflow-x: auto;
+    }
+    .status.inProgress {
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .CardBox {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .cartHeader h2 {
+      font-size: 20px;
+    }
+
+
+  }
+
+@media screen and (min-width: 768px) {
+    .nav{
+        width: 100%;
+    }
+     .nav .nav__content{
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        align-items: center;
+ }
+ .nav__menu ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    column-gap: 1rem !important;
+ }
+ .nav__menu ul .nav__item{
+   padding: 0.4rem 0.7rem ;
+   border-radius: 25px;
+   background-color: transparent;
+   color: #fff !important;
+   transition: .5s;
+ }
+
+ .nav__menu ul .nav__item:active,.nav__menu ul .nav__item:hover,.nav__menu ul .nav__item.active{
+  background-color: #3664F4;
+ }
+ .nav__menu ul .nav__item a{
+    cursor: pointer;
+    color: #fff !important;
+ }
+ .nav__prifil{
+    display: flex;
+    flex-direction: row;
+    color: red !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+ }
+ .nav__prifil .nav__name{
+    color: #E6E7E9 !important;
+ }
+ .nav__prifil .nav_img img{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: .5rem;
+ }
+ .nav__prifil .nav__close ,.nav__prifil .nav__profession {
+    display: none;
+ }
+
+  .nav__social{
+    column-gap: .5rem;
+    margin: 1rem 0;
+  }
+
+  .nav__social .nav__social-icon{
+    color: #E6E7E9 !important;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+}
+@media screen and (max-width: 768px){
+    th{
+        font-size: 13px;
+    }
+    .header .header-name,.header .header__toggle,.nav__close{
+        display: block;
+    }
+    .header .header-name{
+       color: #fff;
+       font-weight: 500;
+    }
+    .header .header__toggle{
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff !important;
+        cursor: pointer;
+    }
+    .nav {
+        position: fixed;
+        top: 0;
+        /* left: 0; */
+        left: -100%;
+        width: 100% !important;
+        height: 100vh;
+        z-index: var(--z-fixed);
+        padding: 1.5rem 0;
+        background-color: var(--dark-color) !important;
+        transition: .5s;
+    }
+    .nav .nav__content{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: space-between;
+
+    }
+    .nav__menu ul{
+        position: relative;
+        left: 0 !important;
+        display: flex;
+        flex-flow: column !important;
+        row-gap: 1rem !important;
+        padding-left: 10px !important;
+     }
+     .nav__menu ul .nav__item {
+       padding: 0.4rem 0;
+       background-color: transparent;
+
+     }
+     .nav__menu ul .nav__item a{
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #fff !important;
+     }
+     .nav__menu ul .nav__item:active a,.nav__menu ul .nav__item:hover a,.nav__menu ul .nav__item.active a{
+      color: #3664F4 !important;
+     }
+     .nav__menu ul .nav__item:active{
+        color: #3664F4 !important;
+     }
+
+     .nav__prifil{
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+
+     }
+     .nav__info{
+        text-align: justify;
+     }
+     .nav__prifil .nav__name,.nav__prifil .nav__profession {
+        color: #E6E7E9 !important;
+        font-weight: bolder;
+     }
+     .nav__prifil .nav_img img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+     }
+      .nav__social{
+        margin-left: .5rem;
+        column-gap: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .nav__social .nav__social-icon{
+        color: #E6E7E9 !important;
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      .nav__close{
+        color: #E6E7E9;
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        font-size: 1.3rem;
+        padding: .25rem;
+        background-color: var(--dark-color-alt);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .nav.show{
+       left: 0 !important;
+      }
+
+  }
