@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('emps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dept_id')->constrainted() ->onUpdate('cascade') ->onDelete('cascade');;
+            $table->foreignId('dept_id')->constrainted()->onUpdate('cascade')->onDelete('cascade');;
             $table->string('name');
             $table->string('image');
             $table->string('registration'); // matricule

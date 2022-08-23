@@ -33,7 +33,7 @@ class Emp extends Component
     // validation
     protected $rules = [
         'name' => 'required|min:6',
-        'image' => 'nullable|min:1000',
+        'image' => 'nullable|max:7000',
 
         'post' => 'required|string',
         'sup' => 'nullable|',
@@ -50,12 +50,17 @@ class Emp extends Component
         $hdate =Carbon::parse($this->hdate)->format('Y-m-d H:i:s');
         // upload image :
 
+        if(!empty($this->image)){
+            $this->image->storeAs('images', time() . '.' .$this->image->getClientOriginalName(),'public');
+            $imaename= 'storage/images/'.  time() . '.' .$this->image->getClientOriginalName();
+        }else{
+            $imaename = 'storage/images/logo/companyloo.png';
+        }
 
-        $this->image->storeAs('images', time() . '.' .$this->image->getClientOriginalName(),'public');
         ModelsEmp::create([
             'name'=>$this->name,
             'dept_id'=>$this->dept,
-            'image'=>'storage/images/'.  time() . '.' .$this->image->getClientOriginalName(),
+            'image'=>$imaename,
             'registration'=>$this->regstnbr,
             'sup_id'=>$this->sup,
             'date_emb'=>  $hdate ,
@@ -99,13 +104,7 @@ class Emp extends Component
          $this->add = false;
     }
     public function print($emp){
-        // if($requesttype == 0){
-
-        // }else if($requesttype == 1){
-
-        // }else{
-
-        // }$this->empid = $emp['id'];
+        $this->empprint['id']= $emp['id'];
         $this->empprint['name']= $emp['name'];
         $this->empprint['regstnbr'] = $emp['registration'];
         $this->empprint['post'] = $emp['post'];
@@ -168,7 +167,7 @@ class Emp extends Component
             'registration'=>$this->regstnbr,
             'sup_id'=>$this->sup,
             'date_emb'=>  $hdate ,
-            'status'=>1,
+            'status'=>$this->status,
             'post'=>$this->post,
         ]) ;
         $this->name = '';
@@ -182,8 +181,7 @@ class Emp extends Component
        session()->flash('Updatesuccess', 'Emp Updated.');
 
     }
-    // public function mount(){
-    // }
+
     public function render()
     {
         $emps =ModelsEmp::latest()->paginate(10) ;
@@ -207,7 +205,7 @@ class Emp extends Component
             'empcount'=>ModelsEmp::count(),
             'activeemp'=>ModelsEmp::where('status',1)->count(),
             'vocationemp'=>ModelsEmp::where('status',0)->count(),
-            'depts'=>dept::count(),
+            'deptscount'=>dept::count(),
         ]);
     }
 }

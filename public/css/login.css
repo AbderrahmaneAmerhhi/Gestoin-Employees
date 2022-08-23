@@ -15,7 +15,7 @@ body {
   background-color: #53b5d2 !important;
   padding: 30px;
 }
-.container {
+.my-container {
   position: relative;
   max-width: 850px;
   width: 100%;
@@ -24,7 +24,7 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   perspective: 2700px;
 }
-.container .cover {
+.my-container .cover {
   position: absolute;
   top: 0;
   left: 50%;
@@ -35,11 +35,11 @@ body {
   transform-origin: left;
   transform-style: preserve-3d;
 }
-.container #flip:checked ~ .cover {
+.my-container #flip:checked ~ .cover {
   transform: rotateY(-180deg);
 }
-.container .cover .front,
-.container .cover .back {
+.my-container .cover .front,
+.my-container .cover .back {
   position: absolute;
   top: 0;
   left: 0;
@@ -50,8 +50,8 @@ body {
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
-.container .cover::before,
-.container .cover::after {
+.my-container .cover::before,
+.my-container .cover::after {
   content: "";
   position: absolute;
   height: 100%;
@@ -60,19 +60,19 @@ body {
   opacity: 0.5;
   z-index: 12;
 }
-.container .cover::after {
+.my-container .cover::after {
   opacity: 0.3;
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
-.container .cover img {
+.my-container .cover img {
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
   z-index: 10;
 }
-.container .cover .text {
+.my-container .cover .text {
   position: absolute;
   z-index: 130;
   height: 100%;
@@ -93,12 +93,12 @@ body {
   font-size: 15px;
   font-weight: 500;
 }
-.container .forms {
+.my-container .forms {
   height: 100%;
   width: 100%;
   background: #fff;
 }
-.container .form-content {
+.my-container .form-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -194,11 +194,11 @@ body {
   text-align: center;
   margin-top: 25px;
 }
-.container #flip {
+.my-container #flip {
   display: none;
 }
 @media (max-width: 730px) {
-  .container .cover {
+  .my-container .cover {
     display: none;
   }
   .form-content .login-form,
@@ -208,10 +208,10 @@ body {
   .form-content .signup-form {
     display: none;
   }
-  .container #flip:checked ~ .forms .signup-form {
+  .my-container #flip:checked ~ .forms .signup-form {
     display: block;
   }
-  .container #flip:checked ~ .forms .login-form {
+  .my-container #flip:checked ~ .forms .login-form {
     display: none;
   }
 }

@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\DeptController;
-use App\Http\Controllers\EmpController;
+use App\Models\dept;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmpController;
+use App\Http\Controllers\DeptController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home')->middleware('auth');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
   // emp route resouce

@@ -1,5 +1,11 @@
 <header class="header">
-    <a href="" class="header-name">Abderrahmane</a>
+    <a href="" class="header-name">
+         @auth
+           {{Auth::user()->name}}
+        @else
+            EmpDahs
+        @endauth
+    </a>
 
     <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
     <nav class="nav" id="nav-menu">
@@ -51,15 +57,13 @@
             </div>
 
             <div class="nav__social">
-                <a href="#" class="nav__social-icon">
+                <a href="https://www.linkedin.com/in/abderrahmane-amerrhi-807b40201/" class="nav__social-icon">
                     <ion-icon name="logo-linkedin"></ion-icon>
                 </a>
-                <a href="#" class="nav__social-icon">
+                <a href="https://github.com/AbderrahmaneAmerhhi" class="nav__social-icon">
                     <ion-icon name="logo-github"></ion-icon>
                 </a>
-                <a href="#" class="nav__social-icon">
-                    <ion-icon name="logo-behance"></ion-icon>
-                </a>
+
             </div>
         </div>
 

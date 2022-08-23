@@ -6,11 +6,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "consoletvs/charts": "6.*",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/fortify": "^1.13",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "laraveldaily/laravel-charts": "^0.1.29",
         "livewire/livewire": "^2.10"
     },
     "require-dev": {

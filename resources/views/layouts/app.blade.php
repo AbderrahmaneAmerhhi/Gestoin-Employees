@@ -25,6 +25,8 @@
     @yield('content')
 
     @livewireScripts
+    @livewireChartsScripts
+
     @yield('script')
 
    {{-- sweetalert  --}}

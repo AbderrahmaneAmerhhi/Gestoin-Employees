@@ -28,7 +28,7 @@
                 </div>
                 <div class="Card">
                     <div>
-                        <div class="numbers">{{$depts}}</div>
+                        <div class="numbers">{{$deptscount}}</div>
                         <div class="CardName">Departments</div>
                     </div>
                     <div class="iconBox">
@@ -333,7 +333,12 @@
                                 <td><img src="{{asset($emp->image)}}" alt="emp_image" width="50" height="50" class="img-fluid rounded-circle"></td>
                                 <td>{{$emp->registration}}</td>
                                 <td>{{$emp->supp}}</td>
+                                @if (!empty($emp->dept->name))
                                 <td>{{$emp->dept->name}}</td>
+                                @else
+                                <td> not exist</td>
+                                @endif
+
                                 <td>{{$emp->date_emb}}</td>
                                 <td>{{$emp->post}}</td>
                                 <td>

@@ -20,15 +20,12 @@
 </head>
 
 <body>
-<div class="container">
+<div class="my-container">
     <input type="checkbox" id="flip">
     <div class="cover">
-        <div class="back">
-            <img src="{{asset('images/logo/companyloo.pmg')}}" alt="">
-            {{-- <div class="text">
-                <span class="text-1">Every new friend is a <br> new adventure</span>
-                <span class="text-2">Let's get connected</span>
-            </div> --}}
+        <div class="front">
+            <img src="{{asset('images/backg/Emps.webp')}}" alt="">
+
         </div>
 
     </div>
@@ -41,7 +38,7 @@
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-envelope"></i>
-                            <input type="email" id="email"  class="@error('email') is-invalid @enderror" placeholder="Enter your email"  name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input type="email" id="email"  class="d-block @error('email') is-invalid @enderror" placeholder="Enter your email"  name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
